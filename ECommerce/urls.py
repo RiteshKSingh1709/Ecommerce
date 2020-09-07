@@ -17,11 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from User.views import home
+from User.views import home,login,signup
+from Product.views import product_display
+from Cart.views import cart_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name='home'),
+    path('login/',login,name='login'),
+    path('signup/',signup,name='signup'),
+    path('cart/',cart_view,name='cart_view'),
+    path('product/',product_display,name='product_display')
 ] 
 
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
