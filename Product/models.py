@@ -19,7 +19,7 @@ class Rating(models.Model):
     member_id = models.ForeignKey(Member, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return self.value
+        return str(self.value)
 
 class Comment(models.Model):
     member_id = models.ForeignKey(Member, null=True, blank=True, on_delete=models.SET_NULL)

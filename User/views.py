@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from .models import Member
+from Product.models import Product
 # Create your views here.
 
 
 def home(request):
-    return render(request,'home.html')
+    if request.method=="POST":
+        pass
+    p = Product.objects.all()
+    print(p)
+    return render(request,'home.html',{'products' : p})
 
 def login(request):
     if request.method == "POST":
