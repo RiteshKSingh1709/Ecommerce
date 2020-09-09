@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-  <head>
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html' %}
+{% block title %}
+<title> Product - ECommerce </title>
+{% endblock %}
 
-    <title>eCommerce Product Detail</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+{%block css %}
+	{% load static %}
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 	<link href="{% static 'product_style.css' %}" rel="stylesheet">
+{% endblock %}
 
-  </head>
-
-  <body>
-	
+{% block content %}
 	<div class="container">
 		<div class="card">
 			<div class="container-fliud">
@@ -71,7 +68,4 @@
 			</div>
 		</div>
 	</div>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  </body>
-</html>
+{% endblock %}
