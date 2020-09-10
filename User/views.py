@@ -43,7 +43,6 @@ def signup(request):
 def profile(request):
     member = Member.objects.get(user=request.user.id)
     user = User.objects.get(username = member.user)
-    print(user.username,user.password)
     print(member)
     if request.method == "POST": 
         print(request.POST['username'])
