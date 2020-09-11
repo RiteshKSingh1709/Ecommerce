@@ -1,52 +1,54 @@
 {% extends 'base.html' %}
 {% block title %} 
-<title> SignUp - ECommerce </title>
+<title> Update Profile - ECommerce </title>
 {% endblock %}
 
 {% block css %}{% endblock %}
 
 {% block content %}
+{% if context %}
+<div class="alert alert-success" role="alert">{{context}}</div>
+{% endif %}
 <div class="panel panel-primary col-md-16">
     <div class="panel-heading">
-        <h3 class="panel-title">SignUp to Website ..</h3>
+        <h3 class="panel-title">Update your profile ..</h3>
     </div>
     <div class="panel-body">
-        <form method="POST" action="{% url 'signup' %}">
+        <form method="POST" action="{% url 'profile' %}">
         {% csrf_token %}
         <div class="form-group input-group ">
             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-            <input name="username" id="username" class="form-control" placeholder="Username" type="text">
+            <input name="username" id="username" class="form-control" placeholder="Username" type="text" value="{{ member.username }}">
         </div> <!-- form-group// -->
 
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input name="password" id="password" class="form-control" placeholder="Create password" type="password">
+            <input name="password" id="password" class="form-control" placeholder="Update password" type="password" value = "{{ member.password }}">
         </div> <!-- form-group// --> 
 
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="fa fa-building"></i></span>
-            <input class="form-control" name="fullname" id="fullname" type="text" placeholder="Fullname">
+            <input class="form-control" name="fullname" id="fullname" type="text" placeholder="Fullname" value="{{ member.fullname }}">
         </div> <!-- form-group end.// -->
 
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-            <input name="email" id="email" class="form-control" placeholder="Email address" type="email">
+            <input name="email" id="email" class="form-control" placeholder="Email address" type="email" value="{{ member.email }}">
         </div> <!-- form-group// -->
 
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-            <input name="phone" id="phone" class="form-control" placeholder="Phone number" type="number">
+            <input name="phone" id="phone" class="form-control" placeholder="Phone number" type="number" value="{{ member.phone }}">
         </div> <!-- form-group// -->
 
         <div class="form-group input-group">
             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-            <input class="form-control" placeholder="Address" type="text" name="address" id="address">
+            <input class="form-control" placeholder="Address" type="text" name="address" id="address" value="{{ member.address }}">
         </div> <!-- form-group// -->  
 
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
-        </div> <!-- form-group// -->      
-        <p class="text-center">Have an account? <a href="{% url 'login' %}  ">Log In</a> </p>                                                                 
+            <button type="submit" class="btn btn-primary btn-block"> Update Account  </button>
+        </div> <!-- form-group// -->                                                                     
     </form>
 </div> <!-- panel end -->
 {% endblock %}

@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title%}
 <title> Login - ECommerce </title>
 {% endblock %}
 
-{% block css %}{% endblock %}
+{% block css %}
+<link href="{% static 'style.css' %}" rel="stylesheet" crossorigin="anonymous">
+{% endblock %}
 
 {% block content %}
 <div class="container">
