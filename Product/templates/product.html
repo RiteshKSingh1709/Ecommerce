@@ -11,6 +11,11 @@
 {% endblock %}
 
 {% block content %}
+{% if successMsg %}
+<div class="alert alert-success" role="alert">
+	<p> {{ successMsg }} </p>
+</div>
+{% endif %}
 	<div class="container">
 		<div class="card">
 			<div class="container-fliud">
@@ -59,10 +64,13 @@
 							<span class="color green"></span>
 							<span class="color blue"></span>
 						</h5>
-						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button">add to cart</button>
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-						</div>
+						<form action="{% url 'add_to_cart' product.id %}">
+							{% csrf_token %}
+							<div class="action">
+								<button class="add-to-cart btn btn-default" type="submit">add to cart</button>
+								<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

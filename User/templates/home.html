@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load random_numbers %}
 {% block title%}
 <title> Login - ECommerce </title>
 {% endblock %}
@@ -23,13 +24,13 @@
             <div class="product-content">
                 <h3 class="title"><a href="#">{{ product.product_name }}</a></h3>
                 <div class="price"> ${{ product.price }}
-                    <span>$14.00</span>
+                    <span>${{ product.old_price }}  </span>
                 </div>
             </div>
             <ul class="social">
                 <li><a href="{% url 'product_display' product.id %}" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
                 <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                <li><a href="{% url 'add_to_cart' product.id %}" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
             </ul>
         </div>
     </div>

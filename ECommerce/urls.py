@@ -18,19 +18,20 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 from User.views import home,login,signup,profile
-from Product.views import product_display
-from Cart.views import cart_view
+from Product.views import product_display,add_to_cart
+from Cart.views import cart_view,delete_item
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name='home'),
-    # path('login/',login,name='login'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('signup/',signup,name='signup'),
     path('cart/',cart_view,name='cart_view'),
     path('profile/',profile,name='profile'),
+    path('add_to_cart/<int:product_id>',add_to_cart,name='add_to_cart'),
+    path('delete_cart_element/<int:cart_id>',delete_item,name='delete_item'),
     path('product/<int:product_id>',product_display,name='product_display')
 ] 
 
